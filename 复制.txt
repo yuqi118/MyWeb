@@ -1,0 +1,54 @@
+import java.awt.Toolkit; import java.awt.datatransfer.Clipboard; import java.awt.datatransfer.StringSelection; import java.awt.datatransfer.Transferable; public class ClipBoardUtil { public static void main(String[] args) { // TODO Auto-generated method stub setSysClipboardText("复制的内容"); } /** 
+     * 将字符串复制到剪切板。 
+     */ public static void setSysClipboardText(String writeMe) { Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard(); Transferable tText = new StringSelection(writeMe); clip.setContents(tText, null); } }
+--------------------- 
+作者：yangymy 
+来源：CSDN 
+原文：https://blog.csdn.net/yangymy/article/details/71172589 
+版权声明：本文为博主原创文章，转载请附上博文链接！
+
+
+	回老家玩，大伯让我去宰只鸭做下酒菜。
+
+	于是我去随便逮了一只，放完血提着回屋里。
+
+	大伯问我：“你宰它时，它有叫唤吗？”
+
+	我：“叫了两下。”
+
+	大伯：“知道它在说什么吗？”
+
+	我：“不知道，它说什么了？”
+
+	大伯：“它在说：我是鹅、我是鹅！”
+
+    List<TOrderInfo> selectByPrimaryKey(BaseReq baseReq);
+
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+
+    select 
+    <include refid="Base_Column_List" />
+    from t_order_info
+
+    where   service_type_id = #{serviceTypeId,jdbcType=VARCHAR}
+
+    <if test="name != null and name != ''" >
+      and  customer_name LIKE concat('%',#{customerName,jdbcType=VARCHAR},'%')
+    </if>
+    <if test="phone != null and phone != ''">
+      and  iphone = #{iphone,jdbcType=VARCHAR}
+    </if>
+
+    <if test="beginTime != null and beginTime != ''">
+      and add_date >=#{beginTime,jdbcType=VARCHAR}
+    </if>
+    <if test="endTime != null and endTime != ''">
+      and <![CDATA[ add_date <=#{endTime,jdbcType=VARCHAR}]]>
+    </if>
+
+      ORDER  BY add_date DESC
+
+
+
+  </select>
